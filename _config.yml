@@ -1,0 +1,43 @@
+# Site settings
+title: Raytronics' Blog
+description: 分享原创的产品和技术文章
+author: Raytronics
+email: your-email@example.com
+url: https://raytronichen.github.io
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Theme settings
+theme: minima
+
+# Navigation
+navigation:
+  - title: 首页
+    url: /
+  - title: 关于
+    url: /about
+
+# Social links
+social:
+  github: raytronichen
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+

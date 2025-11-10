@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="site-nav">
+        <div class="trigger">
+          <a class="page-link" href="{{ '/' | relative_url }}">首页</a>
+          <a class="page-link" href="{{ '/about' | relative_url }}">关于</a>
+          {% if site.social.github %}
+          <a class="page-link" href="https://github.com/{{ site.social.github }}" target="_blank">GitHub</a>
+          {% endif %}
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-col-wrapper">
+        <div class="footer-col">
+          <p class="text">{{ site.description }}</p>
+        </div>
+        <div class="footer-col">
+          <ul class="social-media-list">
+            {% if site.social.github %}
+            <li>
+              <a href="https://github.com/{{ site.social.github }}" target="_blank">
+                <span class="icon">{% include icon-github.svg %}</span>
+                <span class="username">{{ site.social.github }}</span>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <div class="footer-col-wrapper">
+        <p class="copyright">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
