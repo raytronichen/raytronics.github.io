@@ -13,8 +13,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# Theme settings
-theme: minima
+# Theme settings (using custom layouts, no theme)
 
 # Navigation
 navigation:
