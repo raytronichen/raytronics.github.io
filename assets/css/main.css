@@ -331,6 +331,16 @@ body {
   font-size: 14px;
 }
 
+.author-info {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e8e8e8;
+}
+
 /* Responsive */
 @media screen and (max-width: 600px) {
   .site-header .wrapper {
