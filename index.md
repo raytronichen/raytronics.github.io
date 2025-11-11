@@ -5,12 +5,7 @@ title: Home
 
 <div class="home">
   <div class="hero">
-    <h1 class="site-title">{{ site.title }}</h1>
-    <p class="site-description">{{ site.description }}</p>
-  </div>
-
-  <div class="intro-section">
-    <p class="intro-text">To blend ePaper into everyday life — calm, reflective, and energy-efficient — like a piece of living artwork that never demands attention.</p>
+    <p class="intro-text">Calm, reflective, and energy-efficient — a piece of living artwork quietly powered by ePaper.</p>
     <img src="/pics/main.jpeg" alt="ePaper Frame" class="intro-image">
   </div>
 
