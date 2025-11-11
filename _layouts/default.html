@@ -56,8 +56,8 @@
         <div class="trigger">
           <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
           <a class="page-link" href="{{ '/about' | relative_url }}">About</a>
-          {% if site.social.github %}
-          <a class="page-link" href="https://github.com/{{ site.social.github }}" target="_blank">GitHub</a>
+          {% if site.social.reddit %}
+          <a class="page-link" href="{{ site.social.reddit }}" target="_blank">Reddit</a>
           {% endif %}
         </div>
       </nav>
@@ -78,11 +78,11 @@
         </div>
         <div class="footer-col">
           <ul class="social-media-list">
-            {% if site.social.github %}
+            {% if site.social.reddit %}
             <li>
-              <a href="https://github.com/{{ site.social.github }}" target="_blank">
-                <span class="icon">{% include icon-github.svg %}</span>
-                <span class="username">{{ site.social.github }}</span>
+              <a href="{{ site.social.reddit }}" target="_blank">
+                <span class="icon">🔴</span>
+                <span class="username">r/ePaperFrame</span>
               </a>
             </li>
             {% endif %}
