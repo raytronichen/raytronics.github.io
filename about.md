@@ -12,7 +12,7 @@ title: About
   
   <p><strong>Inventor of E-ink Computer Monitor (Co-founder & Former CTO of DASUNG Technology)</strong></p>
   
-  <p>I focus on the innovation and application of e-ink display technology, committed to bringing this eye-friendly technology to more users. As the inventor of e-ink computer monitors, I promoted the application of e-ink display technology in the computer field during my time at DASUNG Technology. Now, I founded InkJoy Frame, focusing on developing color e-ink frame products, combining art and technology perfectly.</p>
+  <p>I focus on the innovation and application of e-ink display technology since 2013, committed to bringing this eye-friendly technology to more users. As the inventor of e-ink computer monitors, I promoted the application of e-ink display technology in the computer field during my time at DASUNG Technology. Now, I founded InkJoy Frame, focusing on developing color e-ink frame products, combining art and technology perfectly.</p>
   
   <h2>Blog Content</h2>
   
