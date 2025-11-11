@@ -28,6 +28,6 @@ title: About
   
   <p>I hope to exchange and learn with everyone through this platform and make progress together.</p>
   
-  <p>If you have any questions or suggestions, please feel free to contact me via GitHub.</p>
+  <p>If you have any questions or suggestions, please feel free to contact me via Reddit.</p>
 </div>
 
