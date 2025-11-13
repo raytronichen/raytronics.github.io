@@ -66,14 +66,32 @@ layout: default
   </div>
 
   <div class="post-navigation">
-    {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="prev-post">
-      ← {{ page.previous.title }}
+    {% assign current_lang = page.lang | default: site.default_lang %}
+    {% assign filtered_posts = site.posts | where: "lang", current_lang | sort: "date" | reverse %}
+    {% assign prev_post = nil %}
+    {% assign next_post = nil %}
+    {% assign found_current = false %}
+    {% for post in filtered_posts %}
+      {% if found_current %}
+        {% assign prev_post = post %}
+        {% break %}
+      {% endif %}
+      {% if post.date == page.date and post.title == page.title %}
+        {% assign found_current = true %}
+      {% else %}
+        {% unless found_current %}
+          {% assign next_post = post %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    {% if prev_post %}
+    <a href="{{ prev_post.url | relative_url }}" class="prev-post">
+      ← {{ prev_post.title }}
     </a>
     {% endif %}
-    {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="next-post">
-      {{ page.next.title }} →
+    {% if next_post %}
+    <a href="{{ next_post.url | relative_url }}" class="next-post">
+      {{ next_post.title }} →
     </a>
     {% endif %}
   </div>
