@@ -2,6 +2,8 @@
 layout: post
 title: Looks close at E Ink Spectra™ 6
 date: 2025-11-11
+lang: en
+ref: looks-close-at-e-ink-spectra-6
 permalink: /2025/11/11/looks-close-at-e-ink-spectra-6/
 tags: [E-ink, Spectra 6, tech]
 ---

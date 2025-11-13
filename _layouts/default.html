@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.default_lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +89,15 @@
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="site-nav">
         <div class="trigger">
-          <a class="page-link" href="{{ '/about' | relative_url }}">About</a>
+          <a class="page-link" href="{{ '/about' | relative_url }}">{% if page.lang == 'zh' %}关于{% else %}About{% endif %}</a>
+          <div class="lang-switcher">
+            {% assign current_lang = page.lang | default: site.default_lang %}
+            {% for lang in site.languages %}
+              {% if lang != current_lang %}
+                <a href="#" class="lang-link" data-lang="{{ lang }}">{{ site.lang_names[lang] }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
       </nav>
     </div>
@@ -118,6 +126,71 @@
       </div>
     </div>
   </footer>
+  
+  <!-- Busuanzi 阅读量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <!-- Language Switcher -->
+  <script>
+    (function() {
+      const langLinks = document.querySelectorAll('.lang-link');
+      const currentLang = '{{ page.lang | default: site.default_lang }}';
+      const currentRef = '{{ page.ref }}';
+      const currentPermalink = '{{ page.permalink }}';
+      
+      // Build posts map for language switching
+      const postsMap = {};
+      {% for post in site.posts %}
+      {% if post.ref %}
+      if (!postsMap['{{ post.ref }}']) {
+        postsMap['{{ post.ref }}'] = {};
+      }
+      postsMap['{{ post.ref }}']['{{ post.lang }}'] = '{{ post.url }}';
+      {% endif %}
+      {% endfor %}
+      
+      langLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetLang = this.getAttribute('data-lang');
+          let targetUrl = null;
+          
+          // Try to find by ref first
+          if (currentRef && postsMap[currentRef] && postsMap[currentRef][targetLang]) {
+            targetUrl = postsMap[currentRef][targetLang];
+          } else {
+            // Handle homepage switching
+            const currentPath = window.location.pathname;
+            if (currentPath === '/' || currentPath === '/index.html') {
+              targetUrl = targetLang === 'zh' ? '/zh/' : '/';
+            } else if (currentPath === '/zh/' || currentPath === '/zh/index.html') {
+              targetUrl = '/';
+            } else if (currentPath.includes('-zh')) {
+              targetUrl = currentPath.replace('-zh', '');
+            } else if (currentPath.includes('-en')) {
+              targetUrl = currentPath.replace('-en', '');
+            } else if (targetLang === 'zh') {
+              // Add -zh suffix for Chinese version
+              const pathParts = currentPath.split('/');
+              const lastPart = pathParts[pathParts.length - 1];
+              if (lastPart && lastPart !== '' && lastPart !== 'index.html') {
+                pathParts[pathParts.length - 1] = lastPart.replace(/\.html$/, '') + '-zh';
+                targetUrl = pathParts.join('/') + '.html';
+              } else {
+                targetUrl = '/zh/';
+              }
+            } else {
+              targetUrl = currentPath.replace('-zh', '');
+            }
+          }
+          
+          if (targetUrl) {
+            window.location.href = targetUrl;
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
 

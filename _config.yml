@@ -6,6 +6,13 @@ email: your-email@example.com
 url: https://www.einkframe.com
 baseurl: ""
 
+# Language settings
+default_lang: en
+languages: [en, zh]
+lang_names:
+  en: English
+  zh: 中文
+
 # SEO Keywords
 keywords: eink, epaper, epaper frame, eink frame, epaper frames, eink frames, eink canvas, epaper canvas, epaper photo frame, eink photo frame, inkjoy, inkjoy frame
 

@@ -35,13 +35,22 @@ layout: default
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%Y年%m月%d日" }}
+        {% if page.lang == 'zh' %}
+          {{ page.date | date: "%Y年%m月%d日" }}
+        {% else %}
+          {{ page.date | date: "%B %d, %Y" }}
+        {% endif %}
       </time>
       {% if page.author %}
       • <span itemprop="author" itemscope itemtype="http://schema.org/Person">
           <span itemprop="name">{{ page.author }}</span>
         </span>
       {% endif %}
+      • <span class="post-views">
+        <span id="busuanzi_container_page_pv">
+          {% if page.lang == 'zh' %}阅读量{% else %}Views{% endif %}: <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
       {% if page.tags %}
       <div class="post-tags">
         {% for tag in page.tags %}
